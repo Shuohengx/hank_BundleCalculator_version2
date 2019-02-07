@@ -7,8 +7,6 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.Order;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class OrderParserTest {
     ConfigLoader configLoader;
     InputReader inputReader;
@@ -43,6 +41,6 @@ public class OrderParserTest {
         //-----------------------------
         orderFiller.bundle_num_update(order,filledOrder);
 
-        orderParser.orderParse(filledOrder,"output_file.txt");
+      //  orderParser.orderParse(filledOrder,"output_file.txt");
     }
 }

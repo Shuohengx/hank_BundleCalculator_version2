@@ -14,15 +14,14 @@ public class OrderFiller {
         for (OrderItem orderItem:order.getItems()){
             int[] bundleQuantities = orderItemFiller.bundleQuantitiesGet(orderItem,filledOrder);
             int target = orderItem.getQuantityRequired();
-            List<Integer> bundleDistribution;
-            bundleDistribution = bundleDistributionCalculator.bundleDistributionCalculate(bundleQuantities,target);
 
             //----------------------------------------
+            List<Integer> bundleDistribution = bundleDistributionCalculator.bundleDistributionCalculate(bundleQuantities,target);
             Map<Object, Integer> bundleDistributionMap = new TreeMap<>();
             for (Object k : bundleDistribution) {
                 bundleDistributionMap.merge(k, 1, (a, b) -> a + b);
             }
-
+            //---------------------------------------
             orderItemFiller.bundleNumsUpdate(orderItem,filledOrder,bundleDistributionMap);
 
         }

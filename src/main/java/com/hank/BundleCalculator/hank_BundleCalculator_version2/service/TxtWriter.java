@@ -1,25 +1,33 @@
 package com.hank.BundleCalculator.hank_BundleCalculator_version2.service;
 
 
+import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledBundle;
+import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledOrder;
+import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledOrderItem;
+
 import java.io.*;
 
-//用不来,调用会出错没有catch住
+
 public class TxtWriter {
 
-
-
-
-    public void write(String filename) throws IOException{
+    public void write(String filename, FilledOrder filledOrder) throws IOException{
+        OrderParser orderParser = new OrderParser();
         try(Writer writer = new FileWriter(new File(filename+".txt")))
         {
             try(BufferedWriter bw = new BufferedWriter(writer))
             {
-                bw.write("60");
-            }catch (IOException ex){
-                ex.printStackTrace();
+                for (FilledOrderItem filledOrderItem:filledOrder.getFilledOrderItems()){
+                    bw.write(orderParser.firstLineGet(filledOrderItem));
+                    bw.newLine();
+
+                    for(FilledBundle filledBundle:filledOrderItem.getFilledBundles()){
+                        if (filledBundle.getNumberOfBundle()==0)
+                            continue;
+                        bw.write(orderParser.DetailGet(filledBundle));
+                        bw.newLine();
+                    }
+                }
             }
-        }catch (IOException ex){
-            ex.printStackTrace();
         }
     }
 

@@ -10,8 +10,10 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.service.TxtWrite
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.imageio.IIOException;
+import java.io.IOException;
 
-@SuppressWarnings("UnusedAssignment")
+
 @SpringBootApplication
 public class HankBundleCalculatorVersion2Application {
 
@@ -24,6 +26,7 @@ public class HankBundleCalculatorVersion2Application {
 		Order order;
 		OrderFiller orderFiller = new OrderFiller();
 		OrderParser orderParser = new OrderParser();
+		TxtWriter txtWriter = new TxtWriter();
 
 		//----------------------------------------------Input+Configuration
 		configLoader.configLoad("Config_file.txt");
@@ -36,7 +39,12 @@ public class HankBundleCalculatorVersion2Application {
 
 
 		//Output
-		orderParser.orderParse(filledOrder,"output_file.txt");
+		try {
+			txtWriter.write("output_file",filledOrder);
+		}catch (IOException ex){
+			ex.printStackTrace();
+		}
+
 
 
 

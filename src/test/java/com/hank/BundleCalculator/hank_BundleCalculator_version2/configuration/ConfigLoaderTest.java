@@ -1,13 +1,9 @@
 package com.hank.BundleCalculator.hank_BundleCalculator_version2.configuration;
 
 import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledBundle;
-import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledOrder;
 import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledOrderItem;
-import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.SubmissionBundle;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ConfigLoaderTest {
     private ConfigLoader configLoader;

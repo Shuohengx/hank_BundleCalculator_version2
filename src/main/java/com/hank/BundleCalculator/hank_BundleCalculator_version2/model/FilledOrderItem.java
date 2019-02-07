@@ -37,8 +37,7 @@ public class FilledOrderItem {
         for(FilledBundle filledBundle:this.filledBundles){
             bundleQuantities.add(filledBundle.bundleQuantityGet());
         }
-        int[] bundleQuantitiesInt = bundleQuantities.stream().mapToInt(i -> i).toArray();
-        return bundleQuantitiesInt;
+        return bundleQuantities.stream().mapToInt(i -> i).toArray();
     }
 
     public void bundleNumUpdate(Map<Object, Integer> bundleDistribution){
@@ -67,7 +66,4 @@ public class FilledOrderItem {
         }
         return cost;
     }
-
-
-
 }

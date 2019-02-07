@@ -7,8 +7,6 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.Order;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class OrderFillerTest {
     private ConfigLoader configLoader;
     private InputReader inputReader;

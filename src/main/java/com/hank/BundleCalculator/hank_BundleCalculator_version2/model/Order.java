@@ -1,9 +1,7 @@
 package com.hank.BundleCalculator.hank_BundleCalculator_version2.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Order {
     private List<OrderItem> items = new ArrayList<>();

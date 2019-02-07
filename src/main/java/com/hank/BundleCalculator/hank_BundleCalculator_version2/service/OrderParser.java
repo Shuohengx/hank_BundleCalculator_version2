@@ -9,28 +9,18 @@ import java.io.*;
 public class OrderParser {
 
 
-    public void orderParse(FilledOrder filledOrder, String filename){
-
-        try(Writer writer = new FileWriter(new File(filename)))
-        {
-            try(BufferedWriter bw = new BufferedWriter(writer))
-            {
-                for (FilledOrderItem filledOrderItem:filledOrder.getFilledOrderItems()){
-                    bw.write(filledOrderItem.bundleTotalOrderGet()+" "+filledOrderItem.getMediaType()+" $"+filledOrderItem.totalCostGet());
-                    bw.newLine();
-
-                    for(FilledBundle filledBundle:filledOrderItem.getFilledBundles()){
-                        if (filledBundle.getNumberOfBundle()==0)
-                            continue;
-                        bw.write("   "+filledBundle.getNumberOfBundle()+ " * "+ filledBundle.getBundle().getQuantity()+ " $"+filledBundle.costIndividualGet());
-                        bw.newLine();
-                    }
-                }
-            }
-        }catch (IOException ex){
-            ex.printStackTrace();
-        }
+    public String firstLineGet(FilledOrderItem filledOrderItem){
+        return filledOrderItem.bundleTotalOrderGet()+" "+filledOrderItem.getMediaType()+" $"+filledOrderItem.totalCostGet();
     }
+
+    public String DetailGet(FilledBundle filledBundle){
+        return "   "+filledBundle.getNumberOfBundle()+ " * "+ filledBundle.getBundle().getQuantity()+ " $"+filledBundle.costIndividualGet();
+    }
+
+
+
+
+
 }
 
 

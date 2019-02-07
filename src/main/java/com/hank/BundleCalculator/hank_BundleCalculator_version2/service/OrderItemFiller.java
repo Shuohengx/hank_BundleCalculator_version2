@@ -19,24 +19,19 @@ public class OrderItemFiller {
     }
 
 //-------------Update and reverse sort-----------------------------------------------------------------------------
-    public void bundleNumsUpdate(OrderItem orderItem, FilledOrder filledOrder, Map<Object, Integer> map){
+    public void bundleNumsUpdate(OrderItem orderItem, FilledOrder filledOrder, Map<Object, Integer> bundleDistributinMap){
         for (FilledOrderItem filledOrderItem:filledOrder.getFilledOrderItems()){
+
             if(!orderItem.getMediaType().toUpperCase().equals(filledOrderItem.getMediaType().toUpperCase()))
                 continue;
 
             Collections.sort(filledOrderItem.getFilledBundles(), new Comparator<FilledBundle>() {
                 @Override
                 public int compare(FilledBundle o1, FilledBundle o2) {
-                    if (o1.bundleQuantityGet()>o2.bundleQuantityGet()){
-                        return -1;
-                    }else if(o1.bundleQuantityGet()<o2.bundleQuantityGet()){
-                        return 1;
-                    }else{
-                        return 0;
-                    }
+                    return Integer.compare(o2.bundleQuantityGet(), o1.bundleQuantityGet());
                 }
             });
-            filledOrderItem.bundleNumUpdate(map);
+            filledOrderItem.bundleNumUpdate(bundleDistributinMap);
         }
     }
 

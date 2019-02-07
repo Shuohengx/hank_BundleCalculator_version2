@@ -71,27 +71,6 @@ public class BundleDistributionCalculatorTest {
         List<Integer> results10 = bundleDistributionCalculator.bundleDistributionCalculate(candidates10,target10);
         assertEquals(Arrays.asList(),results10);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }

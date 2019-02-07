@@ -10,6 +10,11 @@ public class OrderItem {
         this.quantityRequired = quantityRequired;
     }
 
+    public String getMediaType() {
+        return MediaType;
+    }
 
-
+    public int getQuantityRequired() {
+        return quantityRequired;
+    }
 }

@@ -1,7 +1,5 @@
 package com.hank.BundleCalculator.hank_BundleCalculator_version2.model;
 
-import org.springframework.core.annotation.Order;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,11 +32,11 @@ public class FilledOrderItem {
     }
 
     public int[] bundleQuantitiesGet(){
-        List<Integer> bundleQuantities = new ArrayList<Integer>();
+        List<Integer> bundleQuantities = new ArrayList<>();
         for(FilledBundle filledBundle:this.filledBundles){
             bundleQuantities.add(filledBundle.bundleQuantityGet());
         }
-        int[] bundleQuantitiesInt = bundleQuantities.stream().mapToInt(i -> i).toArray();;
+        int[] bundleQuantitiesInt = bundleQuantities.stream().mapToInt(i -> i).toArray();
         return bundleQuantitiesInt;
     }
 
@@ -47,13 +45,30 @@ public class FilledOrderItem {
         int[] bundleQuantity = this.bundleQuantitiesGet();
         for(Object key:bundleDistribution.keySet()){
            for (int i=0;i<bundleQuantitiesGet().length;i++){
-               if (bundleQuantity[i] == (int) key){
-                   this.getFilledBundles().get(i).setNumberOfBundle(bundleDistribution.get(key));
-               }
+               if (bundleQuantity[i] != (int) key)
+                   continue;
+               this.getFilledBundles().get(i).setNumberOfBundle(bundleDistribution.get(key));
+
            }
         }
-
-
     }
+
+    public int bundleTotalOrderGet(){
+        int sum = 0;
+        for(FilledBundle filledBundle:this.getFilledBundles()){
+            sum = sum + filledBundle.getNumberOfBundle()*filledBundle.getBundle().getQuantity();
+        }
+        return sum;
+    }
+
+    public double totalCostGet(){
+        double cost = 0;
+        for(FilledBundle filledBundle:this.getFilledBundles()){
+            cost = cost + filledBundle.getNumberOfBundle()*filledBundle.getBundle().getCost();
+        }
+        return cost;
+    }
+
+
 
 }

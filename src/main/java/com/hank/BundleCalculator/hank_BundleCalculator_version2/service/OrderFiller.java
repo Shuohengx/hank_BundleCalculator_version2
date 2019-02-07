@@ -6,12 +6,6 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.progress.BundleD
 import java.util.*;
 
 public class OrderFiller {
-/*
-    public FilledOrder fill(Order order){
-        FilledOrder filledOrder = new FilledOrder();
-        return filledOrder;
-    }
-    */
 
     public void bundle_num_update(Order order,FilledOrder filledOrder){
         OrderItemFiller orderItemFiller = new OrderItemFiller();

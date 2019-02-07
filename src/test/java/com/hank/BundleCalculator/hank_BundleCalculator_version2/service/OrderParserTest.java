@@ -9,19 +9,20 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class OrderFillerTest {
-    private ConfigLoader configLoader;
-    private InputReader inputReader;
+public class OrderParserTest {
+    ConfigLoader configLoader;
+    InputReader inputReader;
 
+//---------------------------------
+    FilledOrder filledOrder;
+    Order order;
+//---------------------------------
+    OrderFiller orderFiller;
 
-    private FilledOrder filledOrder;
-    private Order order;
-
-    private OrderFiller orderFiller;
-
+    OrderParser orderParser;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         configLoader =new ConfigLoader();
         inputReader = new InputReader();
 
@@ -30,12 +31,11 @@ public class OrderFillerTest {
 
         orderFiller = new OrderFiller();
 
-
-
+        orderParser = new OrderParser();
     }
 
     @Test
-    public void bundle_num_update() {
+    public void orderParse() {
         configLoader.configLoad("Config_file.txt");
 
         filledOrder = configLoader.getFilledOrder();
@@ -43,8 +43,6 @@ public class OrderFillerTest {
         //-----------------------------
         orderFiller.bundle_num_update(order,filledOrder);
 
-
-
-
+        orderParser.orderParse(filledOrder,"output_file.txt");
     }
 }

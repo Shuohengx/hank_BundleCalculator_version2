@@ -6,16 +6,13 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.FilledOrde
 import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.SubmissionBundle;
 import com.hank.BundleCalculator.hank_BundleCalculator_version2.util.ContentsReader;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class ConfigLoader {
     private FilledOrder filledOrder = new FilledOrder();
 
     public void configLoad(String filename){
         ContentsReader contentsReader = new ContentsReader();
-
 
        for (String content:contentsReader.contentsRead(filename)){
            if(content!=null){
@@ -33,14 +30,11 @@ public class ConfigLoader {
                    FilledBundle filledBundle = new FilledBundle(submissionBundle);
 
                    filledOrderItem.bundleAdd(filledBundle);
-
                }
                this.filledOrder.addFilledOrderItem(filledOrderItem);
-            //   System.out.println(Arrays.asList(inputData));
            }
        }
     }
-
     public FilledOrder getFilledOrder() {
         return filledOrder;
     }

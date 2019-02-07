@@ -16,15 +16,12 @@ public class InputReader {
         List<OrderItem> orderItems = new ArrayList<>();
         ContentsReader contentsReader = new ContentsReader();
 
-  //      contentsReader.ontentsRead(filename);
-
         for (String content:contentsReader.contentsRead(filename)){
             if(content!=null){
                 String[] inputData = content.split(" ");
                 String MediaType = inputData[1];
                 int quantityRequired = Integer.parseInt(inputData[0]);
                 order.addItem(new OrderItem(MediaType,quantityRequired));
-             //   this.orderItems.add(new OrderItem(MediaType,quantityRequired));
             }
         }
         return order;

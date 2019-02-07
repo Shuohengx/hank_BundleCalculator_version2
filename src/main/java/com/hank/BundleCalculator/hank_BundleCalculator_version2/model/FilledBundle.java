@@ -31,6 +31,12 @@ public class FilledBundle {
    }
 
 
+    public double costIndividualGet(){
+        return this.getNumberOfBundle()*this.getBundle().getCost();
+    }
+
+
+
 
 
 }

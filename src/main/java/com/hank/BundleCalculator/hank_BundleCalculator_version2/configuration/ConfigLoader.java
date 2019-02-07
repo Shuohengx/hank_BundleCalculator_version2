@@ -9,6 +9,11 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.util.ContentsRea
 
 
 public class ConfigLoader {
+
+
+
+
+    //----------------------读取配置信息------------------------------------------
     private FilledOrder filledOrder = new FilledOrder();
 
     public void configLoad(String filename){

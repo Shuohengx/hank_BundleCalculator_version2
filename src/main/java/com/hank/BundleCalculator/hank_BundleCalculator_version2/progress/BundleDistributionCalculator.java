@@ -5,6 +5,7 @@ import java.util.*;
 
 public class BundleDistributionCalculator {
 
+
     public  List<Integer> bundleDistributionCalculate(int[] candidates, int target){
         List<List<Integer>> results= new ArrayList<>();
         List<List<Integer>> results_proximity = new ArrayList<>();
@@ -22,6 +23,8 @@ public class BundleDistributionCalculator {
         return bundle_distribution;
     }
 
+
+    //计算出精确的所有组合以及无法精确的所有组合。使用的剪枝手法
     private void briefResultCalculate(List<List<Integer>> resAccurate, List<List<Integer>> resProxi,
                          int curIdx, int sum, List<Integer> tmp, int[] candidates,
                          int target) {
@@ -41,7 +44,7 @@ public class BundleDistributionCalculator {
             sum -= candidates[i];
         }
     }
-
+    //从不精确的组合中筛选出最精确的
     private List<Integer> resultSelect(List<List<Integer>> results){
         long sum_min=0;
         List<Integer> result_selected = new ArrayList<>();

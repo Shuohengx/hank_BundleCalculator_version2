@@ -8,7 +8,6 @@ import java.util.Map;
 public class Order {
     private List<OrderItem> items = new ArrayList<>();
 
-
     public void addItem(OrderItem item){
         this.items.add(item);
     }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class FilledOrderItem {
-    private OrderItem orderItem;
+ //   private OrderItem orderItem;
     private List<FilledBundle> filledBundles = new ArrayList<>();
     private String mediaType;
     private String mediaId;
@@ -31,6 +31,7 @@ public class FilledOrderItem {
         return filledBundles;
     }
 
+
     public int[] bundleQuantitiesGet(){
         List<Integer> bundleQuantities = new ArrayList<>();
         for(FilledBundle filledBundle:this.filledBundles){
@@ -40,7 +41,6 @@ public class FilledOrderItem {
         return bundleQuantitiesInt;
     }
 
-
     public void bundleNumUpdate(Map<Object, Integer> bundleDistribution){
         int[] bundleQuantity = this.bundleQuantitiesGet();
         for(Object key:bundleDistribution.keySet()){
@@ -48,7 +48,6 @@ public class FilledOrderItem {
                if (bundleQuantity[i] != (int) key)
                    continue;
                this.getFilledBundles().get(i).setNumberOfBundle(bundleDistribution.get(key));
-
            }
         }
     }

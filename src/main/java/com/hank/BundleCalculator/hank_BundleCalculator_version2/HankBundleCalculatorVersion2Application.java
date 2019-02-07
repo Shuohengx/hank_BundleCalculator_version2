@@ -20,8 +20,8 @@ public class HankBundleCalculatorVersion2Application {
 		//-----------------------------------------------
 		ConfigLoader configLoader = new ConfigLoader();
 		InputReader inputReader = new InputReader();
-		FilledOrder filledOrder ;
-		Order order ;
+		FilledOrder filledOrder;
+		Order order;
 		OrderFiller orderFiller = new OrderFiller();
 		OrderParser orderParser = new OrderParser();
 

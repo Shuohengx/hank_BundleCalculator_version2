@@ -18,7 +18,7 @@ public class OrderItemFiller {
         return bundleQuantities;
     }
 
-//-------------Update and reverse sort
+//-------------Update and reverse sort-----------------------------------------------------------------------------
     public void bundleNumsUpdate(OrderItem orderItem, FilledOrder filledOrder, Map<Object, Integer> map){
         for (FilledOrderItem filledOrderItem:filledOrder.getFilledOrderItems()){
             if(!orderItem.getMediaType().toUpperCase().equals(filledOrderItem.getMediaType().toUpperCase()))
@@ -38,8 +38,6 @@ public class OrderItemFiller {
             });
             filledOrderItem.bundleNumUpdate(map);
         }
-
-
     }
 
 

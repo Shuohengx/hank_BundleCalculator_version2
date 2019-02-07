@@ -2,7 +2,6 @@ package com.hank.BundleCalculator.hank_BundleCalculator_version2.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class FilledOrder {
     private List<FilledOrderItem> filledOrderItems = new ArrayList<>();

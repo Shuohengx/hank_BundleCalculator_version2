@@ -24,13 +24,9 @@ public class OrderFillerTest {
     public void setUp() {
         configLoader =new ConfigLoader();
         inputReader = new InputReader();
-
         filledOrder = new FilledOrder();
         order = new Order();
-
         orderFiller = new OrderFiller();
-
-
 
     }
 

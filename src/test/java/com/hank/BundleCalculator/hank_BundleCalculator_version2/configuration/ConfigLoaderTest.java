@@ -23,10 +23,8 @@ public class ConfigLoaderTest {
 
     @Test
     public void configLoad() {
+
         configLoader.configLoad("Config_file.txt");
-
-
-
 
         System.out.println(configLoader.getFilledOrder().getFilledOrderItems().size());
         for (FilledOrderItem filledOrderItem :configLoader.getFilledOrder().getFilledOrderItems()){

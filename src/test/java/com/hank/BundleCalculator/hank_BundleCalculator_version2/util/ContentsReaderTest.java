@@ -19,7 +19,6 @@ public class ContentsReaderTest {
     public void contentsRead() {
         List<String> contents = contentsReader.contentsRead("input_file.txt");
         List<String> contentsAssert = Arrays.asList("10 IMG", "15 FLAC", "13 VID");
-        //  System.out.println(contents);
         assertEquals(contentsAssert,contents);
     }
 }

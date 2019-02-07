@@ -30,15 +30,5 @@ public class InputReaderTest {
             System.out.println(orderItem.getMediaType());
         }
 
-
-     /*   List<OrderItem> oderItems = inputReader.getOrderItems();
-
-        for (OrderItem oderItem : oderItems){
-            System.out.println(oderItem.getMediaType());
-            System.out.println(oderItem.getQuantityRequired());
-        }
-        */
-
-
     }
 }

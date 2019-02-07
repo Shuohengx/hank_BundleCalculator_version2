@@ -4,16 +4,14 @@ import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.Order;
 import com.hank.BundleCalculator.hank_BundleCalculator_version2.model.OrderItem;
 import com.hank.BundleCalculator.hank_BundleCalculator_version2.util.ContentsReader;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class InputReader {
-    private List<OrderItem> orderItems = new ArrayList<>();
 
+
+    //----------------读取输入信息----------------------//
 
     public Order inputRead(String filename){
         Order order = new Order();
-        List<OrderItem> orderItems = new ArrayList<>();
         ContentsReader contentsReader = new ContentsReader();
 
         for (String content:contentsReader.contentsRead(filename)){
@@ -25,18 +23,6 @@ public class InputReader {
             }
         }
         return order;
-
-    }
-
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    private boolean isFormatCorrect(String content){
-        String[] orderItem = content.split(" ");
-        return true;
-
-
     }
 
 }
